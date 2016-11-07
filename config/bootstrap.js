@@ -11,10 +11,36 @@
 
 module.exports.bootstrap = function(cb) {
 
-  Materia.create({
-    nombre: 'Orga',
-    opciones: ['Comisión 1', 'Comisión 2', 'Comisión 3']
-  }).exec(function (err){
+  Materia.create([
+    {
+      nombre: 'Introducción a la Programación',
+      opciones: ['Comisión 1', 'Comisión 2', 'Comisión 3']
+    },
+    {
+      nombre: 'Organización de Computadoras',
+      opciones: ['Comisión 1', 'Comisión 2', 'Comisión 3']
+    },
+    {
+      nombre: 'Matemática',
+      opciones: ['Comisión 1', 'Comisión 2', 'Comisión 3']
+    },
+    {
+      nombre: 'Programación con Objetos I',
+      opciones: ['Comisión 1', 'Comisión 2', 'Comisión 3']
+    },
+    {
+      nombre: 'Bases de Datos',
+      opciones: ['Comisión 1', 'Comisión 2', 'Comisión 3']
+    },
+    {
+      nombre: 'Estructuras de Datos',
+      opciones: ['Comisión 1', 'Comisión 2', 'Comisión 3']
+    },
+    {
+      nombre: 'Programación con Objetos II',
+      opciones: ['Comisión 1', 'Comisión 2', 'Comisión 3']
+    }
+  ]).exec(function (err){
     if (err) { return done(err); }
 
     // ...etc...
