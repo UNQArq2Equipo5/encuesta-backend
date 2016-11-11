@@ -9,17 +9,26 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 materias = require('./data/materias.js');
+alumnos = require('./data/alumnos.js');
+cuatrimestres = require('./data/cuatrimestres.js');
+encuestas = require('./data/encuestas.js');
 
 module.exports.bootstrap = function(cb) {
 
   Materia.create(materias.data).exec(function (err){
-    if (err) { return done(err); }
-
-    // ...etc...
-    return cb();
+    if (err) { console.log(err) }
+  });
+  Alumno.create(alumnos.data).exec(function (err){
+    if (err) { console.log(err) }
   });
 
-  // It's very important to trigger this callback method when you are finished
-  // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  // cb();
+  Cuatrimestre.create(cuatrimestres.data).exec(function (err){
+    if (err) { console.log(err) }
+  });
+
+  Encuesta.create(encuestas.data).exec(function (err){
+    if (err) { console.log(err) }
+  });
+
+  return cb();
 };

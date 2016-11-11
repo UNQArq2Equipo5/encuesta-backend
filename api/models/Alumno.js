@@ -20,6 +20,10 @@ module.exports = {
     apellido: {
       type: 'string',
       required: true
+    },
+    email: {
+      type: 'string',
+      required: true
     }
   }
 };
