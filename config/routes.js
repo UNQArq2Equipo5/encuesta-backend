@@ -32,7 +32,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': '/docs'
+  '/': '/docs',
+  '/cuatrimestre/:cuatrimestre/createEncuestas': 'Cuatrimestre.createEncuestas'
 
   /***************************************************************************
   *                                                                          *
