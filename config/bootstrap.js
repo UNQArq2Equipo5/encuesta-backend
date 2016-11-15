@@ -18,6 +18,7 @@ module.exports.bootstrap = function(cb) {
   Materia.create(materias.data).exec(function (err){
     if (err) { console.log(err) }
   });
+
   Alumno.create(alumnos.data).exec(function (err){
     if (err) { console.log(err) }
   });
