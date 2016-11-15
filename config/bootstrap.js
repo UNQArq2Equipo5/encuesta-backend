@@ -30,5 +30,15 @@ module.exports.bootstrap = function(cb) {
     if (err) { console.log(err) }
   });
 
+  materias.data.forEach(function(m) {
+    MateriaOfertada.create({cuatrimestre: '58263c273ba6cfec1eb0ddf9', materia: m.id}).exec(function (err, mo){
+      if (err) { return res.serverError(err); }
+      mo.comisiones.add({profesor: 'Profe Juan', cupoMinimo: 10, cupoMaximo: 30, dia: 1, horarioInicio: '10', horarioFin: '14'});
+      mo.comisiones.add({profesor: 'Profe Juan2', cupoMinimo: 10, cupoMaximo: 30, dia: 2, horarioInicio: '10', horarioFin: '14'});
+      mo.comisiones.add({profesor: 'Profe Juan3', cupoMinimo: 2, cupoMaximo: 5, dia: 3, horarioInicio: '10', horarioFin: '14'});
+      mo.save(function(err) { if(err) return;});
+    });
+  });
+
   return cb();
 };

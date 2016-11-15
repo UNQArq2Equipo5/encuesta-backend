@@ -12,7 +12,7 @@ module.exports = {
     {
       "nombre": "Hernan",
       "apellido": "Slavich",
-      "email": "hslavich@gmail.com",
+      "email": "hernan.slavich@gmail.com",
       "token": "a5cb9b8e-79de-40f7-8c58-96e7d7930011",
       "createdAt": "2016-11-11T22:09:00.667Z",
       "updatedAt": "2016-11-11T22:09:00.667Z",
@@ -39,7 +39,7 @@ module.exports = {
     {
       "nombre": "Daniel",
       "apellido": "Palazzo",
-      "email": "daniel.palazzo @unq.edu.ar",
+      "email": "daniel.palazzo@unq.edu.ar",
       "token": "312efa37-a193-4ec4-8e07-e0cb90b24716",
       "createdAt": "2016-11-11T22:09:00.669Z",
       "updatedAt": "2016-11-11T22:09:00.669Z",

@@ -8,9 +8,13 @@
 module.exports = {
 
   attributes: {
-    description: {
+    nombre: {
       type: 'string',
-
+      required: true
+    },
+    nucleo: {
+      type: 'string',
+      required: true
     }
   }
 };

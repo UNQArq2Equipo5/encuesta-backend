@@ -25,9 +25,21 @@ module.exports = {
       type: 'string',
       required: true
     },
+    cupoMinimo: {
+      type: 'integer',
+      required: true
+    },
+    cupoMaximo: {
+      type: 'integer',
+      required: true
+    },
     materiaOfertada: {
       model: 'materiaOfertada',
       required: true
+    },
+    encuestas: {
+      collection: 'encuesta',
+      via: 'respuestas'
     }
   }
 };
