@@ -21,6 +21,11 @@ module.exports = {
     alumno: {
       model: 'alumno',
       required: true
+    },
+    respuestas: {
+      collection: 'comision',
+      via: 'encuestas',
+      dominant: true
     }
   }
 };

@@ -9,17 +9,36 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 materias = require('./data/materias.js');
+alumnos = require('./data/alumnos.js');
+cuatrimestres = require('./data/cuatrimestres.js');
+encuestas = require('./data/encuestas.js');
 
 module.exports.bootstrap = function(cb) {
 
   Materia.create(materias.data).exec(function (err){
-    if (err) { return done(err); }
-
-    // ...etc...
-    return cb();
+    if (err) { console.log(err) }
+  });
+  Alumno.create(alumnos.data).exec(function (err){
+    if (err) { console.log(err) }
   });
 
-  // It's very important to trigger this callback method when you are finished
-  // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  // cb();
+  Cuatrimestre.create(cuatrimestres.data).exec(function (err){
+    if (err) { console.log(err) }
+  });
+
+  Encuesta.create(encuestas.data).exec(function (err){
+    if (err) { console.log(err) }
+  });
+
+  materias.data.forEach(function(m) {
+    MateriaOfertada.create({cuatrimestre: '58263c273ba6cfec1eb0ddf9', materia: m.id}).exec(function (err, mo){
+      if (err) { return res.serverError(err); }
+      mo.comisiones.add({profesor: 'Profe Juan', cupoMinimo: 10, cupoMaximo: 30, dia: 1, horarioInicio: '10', horarioFin: '14'});
+      mo.comisiones.add({profesor: 'Profe Juan2', cupoMinimo: 10, cupoMaximo: 30, dia: 2, horarioInicio: '10', horarioFin: '14'});
+      mo.comisiones.add({profesor: 'Profe Juan3', cupoMinimo: 2, cupoMaximo: 5, dia: 3, horarioInicio: '10', horarioFin: '14'});
+      mo.save(function(err) { if(err) return;});
+    });
+  });
+
+  return cb();
 };
