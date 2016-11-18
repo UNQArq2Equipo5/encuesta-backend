@@ -73,6 +73,15 @@ module.exports.connections = {
      database: 'encuesta-backend' //optional
   },
 
+  mongoLab: {
+    adapter: 'sails-mongo',
+    host: 'ds153657.mlab.com',
+    port: 53657,
+    user: 'heroku_9g0b0524', //optional
+    password: 'abcd1234', //optional
+    database: 'encuesta-backend' //optional
+  },
+
   /***************************************************************************
   *                                                                          *
   * PostgreSQL is another officially supported relational database.          *
