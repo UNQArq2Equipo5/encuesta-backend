@@ -24,6 +24,10 @@ module.exports = {
     email: {
       type: 'string',
       required: true
+    },
+    encuestas: {
+      collection: 'encuesta',
+      via: 'alumno'
     }
   }
 };
