@@ -8,6 +8,10 @@
 module.exports = {
 
   attributes: {
+    descripcion: {
+      type: 'string',
+      required: true
+    },
     profesor: {
       type: 'string'
     },
