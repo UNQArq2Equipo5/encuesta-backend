@@ -19,6 +19,10 @@ module.exports = {
     comisiones: {
       collection: 'comision',
       via: 'materiaOfertada',
+    },
+    respuestas: {
+      collection: 'respuesta',
+      via: 'materiaOfertada'
     }
   }
 };

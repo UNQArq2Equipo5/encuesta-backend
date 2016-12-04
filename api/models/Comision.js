@@ -41,9 +41,14 @@ module.exports = {
       model: 'materiaOfertada',
       required: true
     },
+    respuestas: {
+      collection: 'respuesta',
+      via: 'comision'
+    },
     encuestas: {
       collection: 'encuesta',
-      via: 'respuestas'
+      via: 'encuestas',
+      through: 'respuesta'
     }
   }
 };

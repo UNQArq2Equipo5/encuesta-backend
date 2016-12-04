@@ -9,6 +9,8 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 materias = require('./data/materias.js');
+materiasofertadas = require('./data/materiaofertada.js');
+comisiones = require('./data/comision.js');
 alumnos = require('./data/alumnos.js');
 cuatrimestres = require('./data/cuatrimestres.js');
 encuestas = require('./data/encuestas.js');
@@ -31,14 +33,16 @@ module.exports.bootstrap = function(cb) {
     if (err) { console.log(err) }
   });
 
-  materias.data.forEach(function(m) {
-    MateriaOfertada.create({cuatrimestre: '58263c273ba6cfec1eb0ddf9', materia: m.id}).exec(function (err, mo){
-      if (err) { return res.serverError(err); }
-      mo.comisiones.add({descripcion: 'Comisión 1', profesor: 'Profe Juan', cupoMinimo: 10, cupoMaximo: 30, dia: 1, horarioInicio: '10', horarioFin: '14'});
-      mo.comisiones.add({descripcion: 'Comisión 2', profesor: 'Profe Juan2', cupoMinimo: 10, cupoMaximo: 30, dia: 2, horarioInicio: '10', horarioFin: '14'});
-      mo.comisiones.add({descripcion: 'Comisión 3', profesor: 'Profe Juan3', cupoMinimo: 2, cupoMaximo: 5, dia: 3, horarioInicio: '10', horarioFin: '14'});
-      mo.save(function(err) { if(err) return;});
-    });
+  MateriaOfertada.create(materiasofertadas.data).exec(function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+
+  Comision.create(comisiones.data).exec(function (err) {
+    if (err) {
+      console.log(err);
+    }
   });
 
   return cb();

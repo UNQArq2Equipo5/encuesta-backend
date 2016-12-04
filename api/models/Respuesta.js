@@ -1,30 +1,26 @@
 /**
- * Encuesta.js
+ * Respuesta.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
-var uuid = require('node-uuid');
-
 module.exports = {
-
   attributes: {
-    token: {
-      type: 'uuid',
-      defaultsTo: function (){ return uuid.v4(); },
-    },
-    cuatrimestre: {
-      model: 'cuatrimestre',
+    materiaOfertada: {
+      model: 'materiaofertada',
       required: true
     },
-    alumno: {
-      model: 'alumno',
+    valor: {
+      type: 'string',
       required: true
     },
-    respuestas: {
-      collection: 'respuesta',
-      via: 'encuesta'
+    comision: {
+      model: 'comision'
+    },
+    encuesta: {
+      model: 'encuesta',
+      required: true
     }
   }
 };
