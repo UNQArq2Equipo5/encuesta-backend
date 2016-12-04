@@ -24,6 +24,7 @@
     "rc": "1.0.1",
     "sails": "~0.12.9",
     "sails-disk": "~0.10.9",
+    "sails-hook-newrelic": "^0.3.2",
     "sails-mongo": "^0.12.1",
     "sails-swagger": "^0.5.1"
   },
