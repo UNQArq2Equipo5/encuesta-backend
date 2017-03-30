@@ -1,6 +1,6 @@
 module.exports.newrelic = {
-  app_name: ['encuesta-backend'],
-  license_key: '1d6c0f4135bbbf38a3affa34b5e14b9b91802c47',
+  app_name: ['encuesta-arq2'],
+  license_key: '098569dcab84ccb73cfb478c2f30932094d2c90c',
   logging: {
     level: 'debug', // can be error, warn, info, debug or trace
   },
