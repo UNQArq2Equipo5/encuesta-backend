@@ -10,6 +10,9 @@
  * http://sailsjs.org/#!/documentation/concepts/Logging
  */
 
+var Winston = require('winston');
+var Loggly = require('winston-loggly');
+
 module.exports.log = {
 
   /***************************************************************************
@@ -24,6 +27,22 @@ module.exports.log = {
   *                                                                          *
   ***************************************************************************/
 
-  // level: 'info'
+  // level: 'info',
+
+  custom: new Winston.Logger({
+    transports: [
+
+      new Winston.transports.Loggly({
+        level: 'info',
+        subdomain: 'encuestaarq2',
+        inputToken: '411a03b7-00a3-44b8-b312-cb68465d2e7c'
+      }),
+
+      new Winston.transports.Console({
+        level: 'verbose'
+      })
+
+    ]
+  })
 
 };
