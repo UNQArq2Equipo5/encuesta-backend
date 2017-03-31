@@ -20,11 +20,11 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "machinepack-mailgun": "^0.6.0",
+    "newrelic": "^1.38.2",
     "node-uuid": "^1.4.7",
     "rc": "1.0.1",
     "sails": "~0.12.9",
     "sails-disk": "~0.10.9",
-    "sails-hook-newrelic": "^0.3.2",
     "sails-mongo": "^0.12.1",
     "sails-swagger": "^0.5.1"
   },
@@ -35,7 +35,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hslavich/encuesta-backend.git"
+    "url": "git@github.com:UNQArq2Equipo5/encuesta-backend.git"
   },
   "author": "hslavich",
   "license": ""

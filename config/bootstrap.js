@@ -15,6 +15,8 @@ encuestas = require('./data/encuestas.js');
 
 module.exports.bootstrap = function(cb) {
 
+  sails.newrelic = require('newrelic');
+
   Materia.create(materias.data).exec(function (err){
     if (err) { console.log(err) }
   });
