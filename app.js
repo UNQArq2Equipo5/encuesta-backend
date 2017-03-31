@@ -56,6 +56,7 @@ try {
   }
 }
 
+var config = require('optimist').argv;
 
 // Start server
 sails.lift(rc('sails'));
