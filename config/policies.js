@@ -33,7 +33,12 @@ module.exports.policies = {
 
   UserController: {
       '*': ['isAuthenticated']
+  },
+
+  EncuestaController: {
+      '*': ['hasAccessToken']
   }
+
 
   /***************************************************************************
   *                                                                          *
