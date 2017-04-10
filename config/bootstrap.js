@@ -33,6 +33,10 @@ module.exports.bootstrap = function(cb) {
     if (err) { console.log(err) }
   });
 
+  User.create({email:'admin@unq.edu.ar', password:'admin'}).exec(function (err){
+    if (err) { console.log(err) }
+  });
+
   materias.data.forEach(function(m) {
     MateriaOfertada.create({cuatrimestre: '58263c273ba6cfec1eb0ddf9', materia: m.id}).exec(function (err, mo){
       if (err) { return res.serverError(err); }
