@@ -27,18 +27,37 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
-  MateriaController: {
-      '*': ['isAuthenticated']
-  },
 
+  //DIRECTOR
   UserController: {
-      '*': ['isAuthenticated']
+    '*': ['isAuthenticated']
   },
 
-  EncuestaController: {
-      '*': ['hasAccessToken']
-  }
+  AlumnoController: {
+    '*': ['isAuthenticated']
+  },
 
+  //TOKEN ESTUDIANTE
+  EncuestaController: {
+    '*': ['hasAccessToken']
+  },
+
+  //PUBLICO SOLO LECTURA
+  ComisionController: {
+    '*': ['editAuthenticated']
+  },
+
+  CuatrimestreController: {
+    '*': ['editAuthenticated']
+  },
+
+  MateriaController: {
+    '*': ['editAuthenticated']
+  },
+
+  MateriaOfertadaController: {
+    '*': ['editAuthenticated']
+  }
 
   /***************************************************************************
   *                                                                          *

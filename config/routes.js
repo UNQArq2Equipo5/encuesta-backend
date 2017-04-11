@@ -34,7 +34,9 @@ module.exports.routes = {
 
   '/': '/docs',
   'GET /cuatrimestre/:cuatrimestre/createEncuestas': 'Cuatrimestre.createEncuestas',
-  'GET /alumno/:email/recuperarEncuestas': 'Alumno.recuperarEncuestas'
+  'GET /alumno/:email/recuperarEncuestas': 'Alumno.recuperarEncuestas',
+  'POST /auth/login': 'Auth.login',
+  'GET /auth/logout': 'Auth.logout'
 
   /***************************************************************************
   *                                                                          *
