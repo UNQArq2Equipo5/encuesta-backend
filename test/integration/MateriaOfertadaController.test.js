@@ -4,7 +4,7 @@ var assert = require('assert');
 describe('MateriaOfertadaController', function() {
 
   describe('/materiaOfertada', function() {
-    it('should be public', function (done) {
+    it('Obtener la información de materias y comisiones ofertadas (público)', function (done) {
       request(sails.hooks.http.app)
         .get('/materiaOfertada')
         .expect(200)
