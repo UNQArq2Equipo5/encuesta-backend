@@ -16,7 +16,7 @@ describe('UserController', function() {
         .auth('admin@unq.edu.ar', 'admin')
         .expect(200)
         .expect(function(res) {
-            assert('admin@unq.edu.ar', res.body[0].email);
+            assert.equal('admin@unq.edu.ar', res.body[0].email);
         })
         .end(done);
     });
