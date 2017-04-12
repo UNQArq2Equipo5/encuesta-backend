@@ -10,8 +10,8 @@ describe('AuthController', function() {
         .send({ email: 'admin@unq.edu.ar', password: 'admin' })
         .expect(200)
         .expect(function(res) {
-            assert(res.body.message, "Logged In Successfully");
-            assert(res.body.user.email, "admin@unq.edu.ar");
+            assert("Logged In Successfully", res.body.message);
+            assert("admin@unq.edu.ar", res.body.user.email);
         })
         .end(done);
     });

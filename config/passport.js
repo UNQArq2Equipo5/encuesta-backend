@@ -1,5 +1,6 @@
 var passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
+BasicStrategy = require('passport-http').BasicStrategy,
 bcrypt = require('bcrypt');
 
 passport.serializeUser(function(user, done) {
@@ -25,7 +26,27 @@ passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password
                     createdAt: user.createdAt,
                     id: user.id
                 };
-                
+
+                return done(null, returnUser, { message: 'Logged In Successfully' });
+            });
+        });
+    }
+));
+
+passport.use(new BasicStrategy(
+    function(email, password, done) {
+        User.findOne({ email: email }, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) { return done(null, false, { message: 'Incorrect email.' }); }
+
+            bcrypt.compare(password, user.password, function (err, res) {
+                if (!res) return done(null, false, { message: 'Invalid Password'});
+                var returnUser = {
+                    email: user.email,
+                    createdAt: user.createdAt,
+                    id: user.id
+                };
+
                 return done(null, returnUser, { message: 'Logged In Successfully' });
             });
         });
