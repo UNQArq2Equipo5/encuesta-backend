@@ -6,7 +6,7 @@ before(function(done) {
   this.timeout(5000);
 
   sails.lift({
-    models: { connection: 'localDiskDb' }
+    models: { connection: 'mongodb' }
   }, function(err) {
     if (err) return done(err);
     // here you can load fixtures, etc.

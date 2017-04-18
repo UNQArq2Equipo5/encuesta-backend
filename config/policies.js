@@ -39,7 +39,11 @@ module.exports.policies = {
 
   //TOKEN ESTUDIANTE
   EncuestaController: {
-    '*': ['hasAccessToken']
+    'find': ['isAuthenticated'],
+    'findOne': ['hasAccessToken'],
+    'update': ['hasAccessToken'],
+    'create': ['isAuthenticated']
+    // 'destroy': false,
   },
 
   //PUBLICO SOLO LECTURA
