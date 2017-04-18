@@ -44,19 +44,27 @@ module.exports.policies = {
 
   //PUBLICO SOLO LECTURA
   ComisionController: {
-    '*': ['editAuthenticated']
+    'find': true,
+    'findOne': true,
+    '*': ['isAuthenticated']
   },
 
   CuatrimestreController: {
-    '*': ['editAuthenticated']
+    'find': true,
+    'findOne': true,
+    '*': ['isAuthenticated']
   },
 
   MateriaController: {
-    '*': ['editAuthenticated']
+    'find': true,
+    'findOne': true,
+    '*': ['isAuthenticated']
   },
 
   MateriaOfertadaController: {
-    '*': ['editAuthenticated']
+    'find': true,
+    'findOne': true,
+    '*': ['isAuthenticated']
   }
 
   /***************************************************************************
