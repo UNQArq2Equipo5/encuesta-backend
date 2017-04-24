@@ -42,6 +42,7 @@ module.exports.policies = {
     'find': ['isAuthenticated'],
     'findOne': ['hasAccessToken'],
     'update': ['hasAccessToken'],
+    'add': ['hasAccessToken'],
     'create': ['isAuthenticated']
     // 'destroy': false,
   },

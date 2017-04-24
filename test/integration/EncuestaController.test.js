@@ -43,5 +43,46 @@ describe('EncuestaController', function() {
         .expect(403)
         .end(done);
     });
+
+    it('No puede modificar encuesta sin access_token', function (done) {
+        Comision.find({limit: 1}).exec(function (err, comisiones) {
+            var comision = comisiones[0].id;
+            request(sails.hooks.http.app)
+                .post('/encuesta/'+encuesta+'/respuestas')
+                .send({id: comision})
+                .expect(403)
+                .end(done);
+        });
+    });
+
+
+    it('Puede modificar su encuesta', function (done) {
+        Comision.find({limit: 1}).exec(function (err, comisiones) {
+            var comision = comisiones[0].id;
+            request(sails.hooks.http.app)
+                .post('/encuesta/'+encuesta+'/respuestas')
+                .send({id: comision})
+                .set('access_token', access_token)
+                .expect(200)
+                .expect(function(res) {
+                    assert.equal(encuesta, res.body.id);
+                    assert.equal(1, res.body.respuestas.length);
+                    assert.equal(comision, res.body.respuestas[0].id);
+                })
+                .end(done);
+        });
+    });
+
+    it('No puede modificar otra encuesta', function (done) {
+        Comision.find({limit: 1}).exec(function (err, comisiones) {
+            var comision = comisiones[0].id;
+            request(sails.hooks.http.app)
+                .post('/encuesta/58263c4fb5fea9111fb47c2f')
+                .send({respuestas: [{id: comision}]})
+                .set('access_token', access_token)
+                .expect(403)
+                .end(done);
+        });
+    });
   });
 });
