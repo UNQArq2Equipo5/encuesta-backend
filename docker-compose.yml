@@ -2,10 +2,12 @@ version: '2'
 
 services:
   web:
+    build: .
     image: node:4
     entrypoint: ./bin/entrypoint.sh
     volumes:
       - .:/app
+      - /app/node_modules
     working_dir: /app
     environment:
       DB_HOST: mongo
@@ -14,6 +16,5 @@ services:
       - 1337:1337
     depends_on:
       - mongo
-
   mongo:
     image: mongo
