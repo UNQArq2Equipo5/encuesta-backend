@@ -64,7 +64,7 @@ module.exports.connections = {
   //   password: 'password', //optional
   //   database: 'your_mongo_db_name_here' //optional
   // },
-  mongodb: {
+  mongoDocker: {
      adapter: 'sails-mongo',
      host: process.env.DB_HOST || 'localhost',
      port: 27017,
