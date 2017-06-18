@@ -29,7 +29,7 @@ authenticateUser = function(email, password, done) {
             return done(null, returnUser, { message: 'Logged In Successfully' });
         });
     });
-}
+};
 
 passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password'}, authenticateUser));
 passport.use(new BasicStrategy(authenticateUser));
