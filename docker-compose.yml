@@ -2,14 +2,14 @@ version: '2'
 
 # cpu-period default to 1 second
 # cpu-quota is in microseconds, so cpu-quota=1000000 is cpu 100%? 1 secd = 1000000 microsecds
-# this resource configs expect 4 cpu and 3 GB ram (jmeter included)
+# this resource configs expect 3 cpu and 3 GB ram (jmeter included)
 
 services:
   web:
     build: .
     image: node:4
     cpu_quota: 1000000
-    cpuset: "0,1"
+    cpuset: "0"
     mem_limit: 1024m
     memswap_limit: 1024m
     mem_reservation: 1024m
@@ -32,7 +32,7 @@ services:
   mongo:
     image: mongo
     cpu_quota: 750000
-    cpuset: "2"
+    cpuset: "1"
     mem_limit: 512m
     memswap_limit: 512m
     mem_reservation: 512m
@@ -43,7 +43,7 @@ services:
   redis:
     image: redis
     cpu_quota: 250000
-    cpuset: "2"
+    cpuset: "1"
     mem_limit: 512m
     memswap_limit: 512m
     mem_reservation: 512m
@@ -55,7 +55,7 @@ services:
       context: .
       dockerfile: Dockerfile.jmeter
     cpu_quota: 1000000
-    cpuset: "3"
+    cpuset: "2"
     mem_limit: 1024m
     memswap_limit: 1024m
     mem_reservation: 1024m
