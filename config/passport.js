@@ -1,7 +1,7 @@
 var passport = require('passport'),
-LocalStrategy = require('passport-local').Strategy,
-BasicStrategy = require('passport-http').BasicStrategy,
-bcrypt = require('bcrypt');
+    LocalStrategy = require('passport-local').Strategy,
+    BasicStrategy = require('passport-http').BasicStrategy,
+    sha512 = require('js-sha512');
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -18,8 +18,7 @@ authenticateUser = function(email, password, done) {
         if (err) { return done(err); }
         if (!user) { return done(null, false, { message: 'Incorrect email.' }); }
 
-        bcrypt.compare(password, user.password, function (err, res) {
-            if (!res) return done(null, false, { message: 'Invalid Password'});
+        if (sha512(password) == user.password) {
             var returnUser = {
                 email: user.email,
                 createdAt: user.createdAt,
@@ -27,7 +26,9 @@ authenticateUser = function(email, password, done) {
             };
 
             return done(null, returnUser, { message: 'Logged In Successfully' });
-        });
+        }
+
+        return done(null, false, { message: 'Invalid Password'});
     });
 };
 

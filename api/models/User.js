@@ -5,7 +5,7 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
-var bcrypt = require('bcrypt');
+var sha512 = require('js-sha512');
 
 module.exports = {
 
@@ -28,16 +28,8 @@ module.exports = {
     },
 
     beforeCreate: function(user, cb) {
-        bcrypt.genSalt(10, function(err, salt) {
-            bcrypt.hash(user.password, salt, function(err, hash) {
-                if (err) {
-                    console.log(err);
-                    cb(err);
-                } else {
-                    user.password = hash;
-                    cb();
-                }
-            });
-        });
+        hash = sha512(user.password);
+        user.password = hash;
+        cb();
     }
 };

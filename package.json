@@ -5,7 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
-    "bcrypt": "~0.8.0",
+    "js-sha512": "*",
     "connect-redis": "^3.3.0",
     "ejs": "2.3.4",
     "express-session": "^1.15.3",
