@@ -63,3 +63,6 @@ services:
     entrypoint: /jmeter_entrypoint.sh
     environment:
       APP_HOST: web
+      APP_PORT: 1337
+      TEST_USERS: 100
+      TEST_RAMPUP: 30
