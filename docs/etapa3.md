@@ -32,4 +32,10 @@ docker-compose -f docker-compose-haproxy.yml up jmeter
 ![Test ha 1](img/test-ha-1inst.png)
 
 - 800 usuarios, 60 s rampup, 3 instancias:
-![Test ha 1](img/test-ha-3inst.png)
+![Test ha 2](img/test-ha-3inst.png)
+
+- 1200 usuarios, 60 s rampup, 1 instancia:
+![Test ha 3](img/test-ha-1inst-1200users.png)
+
+- 1200 usuarios, 60 s rampup, 3 instancias:
+![Test ha 4](img/test-ha-3inst-1200users.png)
