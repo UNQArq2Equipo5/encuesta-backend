@@ -27,3 +27,6 @@ Se puede ver en el output del haproxy como se registran las nuevas instancias
 ``` bash
 docker-compose -f docker-compose-haproxy.yml up jmeter
 ```
+
+- 800 usuarios, 60 s rampup:
+![Test ha 1](docs/img/test-ha-1inst.png)
