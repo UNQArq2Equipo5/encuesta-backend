@@ -14,7 +14,7 @@ redis | 250000 | 1 | 512m
 **RESULTADO:** La aplicación no soporta la carga, crashea antes de finalizar el test
 
 ![Test nr 1](img/test1_newrelic.png)
-
+_____________________
 #### Test 2
 500 Usuarios, 60 segs rampup
 
@@ -27,8 +27,7 @@ redis | 250000 | 1 | _256m_
 **RESULTADO:** 48.3 req/s - Avg: 48 Min: 6 Max: 399 Err: 0%
 
 ![Test nr 2](img/test2_newrelic.png)
-
-
+_____________________
 #### Test 3
 1000 Usuarios, 100 segs rampup
 
@@ -41,7 +40,7 @@ redis | 250000 | 1 | 256m
 **RESULTADO:** La aplicación no soporta la carga
 
 ![Test nr 3](img/test3_newrelic.png)
-
+_____________________
 #### Test 4
 1000 Usuarios, 100 segs rampup
 
