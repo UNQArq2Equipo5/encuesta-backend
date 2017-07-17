@@ -17,5 +17,3 @@ docker-compose up jmeter
 ```
 
 Ejecuta los tests de performance
-
-## Configuración de recursos
